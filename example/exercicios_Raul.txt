@@ -1,0 +1,28 @@
+__________________________________________________________________________
+
+-> todas os artigos de determinado reporter
+
+>>> Article.objects.filter(reporter__first_name='Marcos') 
+<QuerySet [<Article: kakakakakllelelenssaa>, <Article: soaksokokokosa>]>
+__________________________________________________________________________ 
+
+-> todos os artigos de entre 2019-2020
+
+__________________________________________________________________________ 
+
+-> o reporter com mais artigos em 2020 
+
+__________________________________________________________________________ 
+
+-> artigos que contenham a palvra "python"
+ e tenham sido publicados 
+por determinado reporter em abril de 2015
+
+__________________________________________________________________________  
+
+-> A quantidade de publicacoes que tenham 
+a letra "i"
+
+ 
+
+-> A media de publicacoes por artigos
