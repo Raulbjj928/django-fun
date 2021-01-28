@@ -7,22 +7,36 @@ __________________________________________________________________________
 __________________________________________________________________________ 
 
 -> todos os artigos de entre 2019-2020
-
+>>> Article.objects.exclude(pub_date__gte=datetime(2020, 12, 31)).filter(pub_date__gte=datetime(2019, 1, 1))     
+<QuerySet [<Article: kakakakakllelelenssaa>, <Article: lalalal>, <Article: soaksokokokosa>, <Article: suahsuhaushaushua>, <Article: 
+suahsuhaushaushua>]>
 __________________________________________________________________________ 
 
 -> o reporter com mais artigos em 2020 
 
+>>> Reporter.objects.filter(article__pub_date__year=2020).annotate(publi=Count('article')).order_by('-publi')[0]      
+<Reporter: Bruno Santos>
+
 __________________________________________________________________________ 
 
--> artigos que contenham a palvra "python"
+-> artigos que contenham a palvra "lalalal"
  e tenham sido publicados 
-por determinado reporter em abril de 2015
+por determinado reporter em janeiro de 2020
 
+>>> Article.objects.filter(headline = "lalalal").filter(reporter = r[0]).filter(pub_date__year=2020).filter(pub_date__month=1)
+<QuerySet [<Article: lalalal>]>
+(adaptei para meu DB)
 __________________________________________________________________________  
 
 -> A quantidade de publicacoes que tenham 
 a letra "i"
 
- 
+>>> Publication.objects.filter(title__contains="i").count()  
+8 
 
+__________________________________________________________________________ 
 -> A media de publicacoes por artigos
+
+>>> len(Publication.objects.all())/len(Article.objects.all())
+2.0
+__________________________________________________________________________ 
